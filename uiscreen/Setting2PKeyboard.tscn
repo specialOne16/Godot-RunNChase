@@ -1,0 +1,123 @@
+[gd_scene load_steps=8 format=2]
+
+[ext_resource path="res://uiscreen/ui_assets/tr-large.tres" type="DynamicFont" id=1]
+[ext_resource path="res://uiscreen/ButtonScene.gd" type="Script" id=2]
+[ext_resource path="res://uiscreen/ui_assets/turretroad-theme.tres" type="Theme" id=3]
+[ext_resource path="res://assets/background.png" type="Texture" id=4]
+[ext_resource path="res://assets/runner green.png" type="Texture" id=5]
+[ext_resource path="res://assets/runner blue.png" type="Texture" id=6]
+[ext_resource path="res://uiscreen/Setting2PKeyboard.gd" type="Script" id=7]
+
+
+
+[node name="Setting2PKeyboard" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+theme = ExtResource( 3 )
+script = ExtResource( 7 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="background" type="Sprite" parent="."]
+position = Vector2( 960.798, 532.043 )
+texture = ExtResource( 4 )
+
+[node name="Label" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -180.5
+margin_top = 273.724
+margin_right = 180.5
+margin_bottom = 339.724
+custom_fonts/font = ExtResource( 1 )
+text = "Run N Chase"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="HBoxContainer" type="HBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -699.0
+margin_top = -43.0
+margin_right = 698.0
+margin_bottom = 134.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HBoxContainer"]
+margin_right = 696.0
+margin_bottom = 177.0
+size_flags_horizontal = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/VBoxContainer"]
+margin_right = 696.0
+margin_bottom = 123.0
+size_flags_vertical = 3
+texture = ExtResource( 6 )
+stretch_mode = 6
+
+[node name="Button" type="Button" parent="HBoxContainer/VBoxContainer"]
+margin_top = 127.0
+margin_right = 696.0
+margin_bottom = 177.0
+text = "Unlimited Jump"
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+pathS = "res://scenes/Scene2Keyboard.tscn"
+
+[node name="VBoxContainer2" type="VBoxContainer" parent="HBoxContainer"]
+margin_left = 700.0
+margin_right = 1397.0
+margin_bottom = 177.0
+size_flags_horizontal = 3
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="HBoxContainer/VBoxContainer2"]
+margin_right = 697.0
+margin_bottom = 123.0
+size_flags_vertical = 3
+texture = ExtResource( 5 )
+stretch_mode = 6
+
+[node name="Button" type="Button" parent="HBoxContainer/VBoxContainer2"]
+margin_top = 127.0
+margin_right = 697.0
+margin_bottom = 177.0
+text = "Unlimited Jump"
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+pathS = "res://scenes/Scene2Keyboard.tscn"
+
+[node name="Button" type="Button" parent="."]
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+margin_left = -195.5
+margin_top = -146.108
+margin_right = 195.5
+margin_bottom = -96.1084
+size_flags_vertical = 3
+text = "START"
+script = ExtResource( 2 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+pathS = "res://scenes/Scene2Joystick.tscn"
+[connection signal="button_up" from="HBoxContainer/VBoxContainer/Button" to="." method="_on_player1_button_up"]
+[connection signal="button_up" from="HBoxContainer/VBoxContainer2/Button" to="." method="_on_player2_button_up"]
+[connection signal="button_up" from="Button" to="." method="_on_start_button_up"]

@@ -1,0 +1,38 @@
+[gd_scene load_steps=3 format=2]
+
+[ext_resource path="res://uiscreen/ButtonScene.gd" type="Script" id=1]
+[ext_resource path="res://assets/runner blue.png" type="Texture" id=2]
+
+
+
+[node name="VBoxContainer" type="VBoxContainer"]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -195.0
+margin_top = -106.0
+margin_right = 196.0
+margin_bottom = 216.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="TextureRect" type="TextureRect" parent="."]
+margin_right = 391.0
+margin_bottom = 298.0
+size_flags_vertical = 3
+texture = ExtResource( 2 )
+stretch_mode = 6
+
+[node name="Button" type="Button" parent="."]
+margin_top = 302.0
+margin_right = 391.0
+margin_bottom = 322.0
+text = "Unlimited Jump"
+script = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+pathS = "res://scenes/Scene2Keyboard.tscn"
+[connection signal="button_up" from="Button" to="Button" method="_on_button_up"]

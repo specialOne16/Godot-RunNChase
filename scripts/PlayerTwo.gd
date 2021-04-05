@@ -1,0 +1,29 @@
+extends Player
+
+func _ready():
+	runner = preload("res://assets/runner green.png")
+	runnerSkillUsed = preload("res://assets/runner green skillused.png")
+	if not has_node("CatchedDetector"):
+		get_node("Sprite").set_texture(runner)
+	
+func _physics_process(delta):
+	
+	myScore = GameData.scoreP2
+	
+	inputRight = Input.is_action_pressed("move_right_two")
+	inputLeft = Input.is_action_pressed("move_left_two")
+	inputJump = Input.is_action_just_pressed("jump_two")
+	
+	match GameData.player2Skill:
+		JUMP:
+			jump(Input.is_action_just_pressed("skill_two"))
+		DASH:
+			dash(Input.is_action_just_pressed("skill_two"))
+		DROP:
+			drop(Input.is_action_just_pressed("skill_two"))
+			
+	if not isChasing and notfreeze:
+		GameData.scoreP2 += delta * SCORE_MULTIPLIER
+
+	if not notfreeze:
+		GameData.scoreP2 = 0

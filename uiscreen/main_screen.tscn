@@ -1,0 +1,97 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://uiscreen/ui_assets/turretroad-theme.tres" type="Theme" id=1]
+[ext_resource path="res://uiscreen/ui_assets/tr-large.tres" type="DynamicFont" id=2]
+[ext_resource path="res://assets/background.png" type="Texture" id=3]
+[ext_resource path="res://uiscreen/ButtonScene.gd" type="Script" id=4]
+[ext_resource path="res://uiscreen/ButtonExit.gd" type="Script" id=5]
+
+[node name="MainScreen" type="Control"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 1.88794
+margin_right = 1.88794
+theme = ExtResource( 1 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="background" type="Sprite" parent="."]
+position = Vector2( 959.016, 532.043 )
+texture = ExtResource( 3 )
+
+[node name="Label" type="Label" parent="."]
+anchor_left = 0.5
+anchor_right = 0.5
+margin_left = -180.5
+margin_top = 273.724
+margin_right = 180.5
+margin_bottom = 339.724
+custom_fonts/font = ExtResource( 2 )
+text = "Run N Chase"
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+margin_left = -195.5
+margin_top = -72.0
+margin_right = 195.5
+margin_bottom = 72.0
+__meta__ = {
+"_edit_use_anchors_": false
+}
+
+[node name="Button4" type="Button" parent="VBoxContainer"]
+margin_right = 391.0
+margin_bottom = 50.0
+size_flags_vertical = 3
+text = "N Player"
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+pathS = "res://uiscreen/SettingNPlayer.tscn"
+
+[node name="Button5" type="Button" parent="VBoxContainer"]
+margin_top = 54.0
+margin_right = 391.0
+margin_bottom = 104.0
+size_flags_vertical = 3
+text = "2 Player Keyboard"
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+pathS = "res://uiscreen/Setting2PKeyboard.tscn"
+
+[node name="Button3" type="Button" parent="VBoxContainer"]
+margin_top = 108.0
+margin_right = 391.0
+margin_bottom = 158.0
+size_flags_vertical = 3
+text = "2 Player Joystick"
+script = ExtResource( 4 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+pathS = "res://uiscreen/Setting2PJoy.tscn"
+
+[node name="Button2" type="Button" parent="VBoxContainer"]
+margin_top = 162.0
+margin_right = 391.0
+margin_bottom = 212.0
+size_flags_vertical = 3
+text = "Quit"
+script = ExtResource( 5 )
+__meta__ = {
+"_edit_use_anchors_": false
+}
+[connection signal="button_up" from="VBoxContainer/Button4" to="VBoxContainer/Button4" method="_on_button_up"]
+[connection signal="button_up" from="VBoxContainer/Button5" to="VBoxContainer/Button5" method="_on_button_up"]
+[connection signal="button_up" from="VBoxContainer/Button3" to="VBoxContainer/Button3" method="_on_button_up"]
+[connection signal="button_up" from="VBoxContainer/Button2" to="VBoxContainer/Button2" method="_on_button_up"]
